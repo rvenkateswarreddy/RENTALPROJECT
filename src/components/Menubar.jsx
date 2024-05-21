@@ -13,7 +13,7 @@ const Menubar = () => {
   return (
     <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
       <div className="logo text-lime-300 text-2xl">
-        <Link to="/">RENTAL</Link>
+        <Link to="/">RENTIFY</Link>
       </div>
       {user.isSeller ? (
         <div className="middle-links flex gap-5">
@@ -23,8 +23,11 @@ const Menubar = () => {
           <Link to="/seller/addproperty" className="mx-2">
             Addproperty
           </Link>
-          <Link to="/seller/property" className="mx-2">
-            Property
+          <Link to="/seller/allproperties" className="mx-2">
+            All Properties
+          </Link>
+          <Link to="/seller/sellerproperties" className="mx-2">
+            Seller Property
           </Link>
           <Link to="/seller/interest" className="mx-2">
             Interest

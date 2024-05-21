@@ -23,6 +23,7 @@ import { Toaster } from "react-hot-toast";
 import BuyerOwner from "./components/BuyerOwner";
 import LikedComponent from "./components/LikedComponent";
 import Eachservice from "./components/Eachservice";
+import SellerProperties from "./components/SellerProperties ";
 
 const App = () => {
   const token = localStorage.getItem("token");
@@ -44,7 +45,8 @@ const App = () => {
           <Route index element={<SellerHome />} /> {/* Corrected Path */}
           <Route path="sellerhome" element={<SellerHome />} />{" "}
           {/* Corrected Path */}
-          <Route path="property" element={<Property />} />
+          <Route path="allproperties" element={<Property />} />
+          <Route path="sellerproperties" element={<SellerProperties />} />
           <Route path="interest" element={<Interest />} />
           <Route path="addproperty" element={<AddingProperty />} />
           <Route path="likes" element={<LikedComponent />} />

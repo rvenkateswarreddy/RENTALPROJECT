@@ -132,6 +132,10 @@ const Property = () => {
       <div className="grid grid-cols-3 gap-4">
         {properties.map((property) => (
           <div key={property._id} className="card bg-base-100 shadow-xl p-4">
+            <img
+              src="https://propmania.in/images/gallery/201710031105031270919089.jpg"
+              alt=""
+            />
             <h3 className="text-lg">{property.title}</h3>
             <h3 className="text-lg">description:{property.description}</h3>
             <h3 className="text-lg">price:{property.price}</h3>

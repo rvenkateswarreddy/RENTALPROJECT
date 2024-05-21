@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false); // State to handle loading
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true); // Set loading to true when login starts
     try {
       const response = await fetch(
         "https://rental-uq1z.onrender.com/api/users/login",
@@ -20,6 +22,7 @@ const Login = () => {
         }
       );
       const data = await response.json();
+      setLoading(false); // Set loading to false once the response is received
       if (response.ok) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user)); // Store user data
@@ -33,6 +36,7 @@ const Login = () => {
         throw new Error(data.message || "Unable to login");
       }
     } catch (error) {
+      setLoading(false); // Ensure loading is false if there's an error
       console.error("Login error:", error);
       alert(error.message);
     }
@@ -40,7 +44,6 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      {/* Increase the padding and set a minimum width */}
       <div className="p-12 bg-white shadow-xl rounded-xl w-full max-w-[400px]">
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <input
@@ -49,6 +52,7 @@ const Login = () => {
             className="input input-bordered w-full"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={loading}
           />
           <input
             type="password"
@@ -56,9 +60,10 @@ const Login = () => {
             className="input input-bordered w-full"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            disabled={loading}
           />
-          <button type="submit" className="btn btn-primary">
-            Login
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
       </div>

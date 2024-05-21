@@ -6,28 +6,32 @@ const teamMembers = [
     id: 1,
     name: "Alice Johnson",
     role: "CEO",
-    imageUrl: "https://via.placeholder.com/150",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YXS6L7FodALRsFGKIBkv5XX6in_WK3Decg&s",
     bio: "Alice is a visionary leader with over 10 years of experience in the tech industry.",
   },
   {
     id: 2,
     name: "Bob Smith",
     role: "CTO",
-    imageUrl: "https://via.placeholder.com/150",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YXS6L7FodALRsFGKIBkv5XX6in_WK3Decg&s",
     bio: "Bob is an expert in cybersecurity and AI technologies, driving innovation at our company.",
   },
   {
     id: 3,
     name: "Carol White",
     role: "CFO",
-    imageUrl: "https://via.placeholder.com/150",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YXS6L7FodALRsFGKIBkv5XX6in_WK3Decg&s",
     bio: "Carol oversees financial strategies and brings over 15 years of experience in finance management.",
   },
   {
     id: 4,
     name: "Dave Brown",
     role: "COO",
-    imageUrl: "https://via.placeholder.com/150",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0YXS6L7FodALRsFGKIBkv5XX6in_WK3Decg&s",
     bio: "Dave ensures operational excellence across all departments, fostering teamwork and efficiency.",
   },
 ];

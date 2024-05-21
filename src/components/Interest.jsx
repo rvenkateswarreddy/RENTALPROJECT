@@ -13,14 +13,15 @@ const Interest = () => {
 
   const fetchProperties = async () => {
     const response = await fetch(
-      "https://rental-uq1z.onrender.com/api/properties",
+      "https://rental-uq1z.onrender.com/api/properties/myproperties",
       {
-        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        // Updated endpoint
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       }
     );
     const data = await response.json();
     if (response.ok) {
-      setProperties(data.properties);
+      setProperties(data);
     } else {
       toast.error("Failed to fetch properties: " + data.message);
     }
@@ -31,7 +32,7 @@ const Interest = () => {
     const response = await fetch(
       `https://rental-uq1z.onrender.com/api/properties/${propertyId}/interest`,
       {
-        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       }
     );
     const data = await response.json();
@@ -64,16 +65,21 @@ const Interest = () => {
               key={property._id}
               className="card bg-base-100 shadow-2xl mb-2 p-4 border-solid"
             >
+              <img
+                src="https://propmania.in/images/gallery/201710031105031270919089.jpg"
+                alt=""
+              />
               <h1 className="text-2xl text-blue-500 ">
                 Title:{property.title}
               </h1>
+
               <h3 className="text-lg">Description:{property.description}</h3>
               <h3 className="text-lg">Price:{property.price}</h3>
               <h3 className="text-lg">Bedrooms:{property.bedrooms}</h3>
               <h3 className="text-lg">Location:{property.location}</h3>
               <h3 className="text-lg">Amenities:{property.amenities}</h3>
               <button
-                className="btn btn-secondary mt-3"
+                className="btn btn-primary mt-3"
                 onClick={() => fetchInterestedBuyers(property._id)}
               >
                 View Interested Buyers
@@ -94,7 +100,7 @@ const Interest = () => {
                   <p key={buyer._id}>
                     <h1>Email:{buyer.email}</h1>
                     <h1>Firstname:{buyer.firstName}</h1>
-                    <h1>Firstname:{buyer.lastName}</h1>
+                    <h1>Lastname:{buyer.lastName}</h1>
                     <h1>PhoneNumber:{buyer.phone}</h1>
                   </p>
                 ))
